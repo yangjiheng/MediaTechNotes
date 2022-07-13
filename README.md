@@ -1,6 +1,13 @@
 # MediaTechNotes
 
+## Table of Content
+- **[Video Compression](#video_compression)**
+    - **[Hardware Acceleration](#hardware-acceleration)**
 
+## Video Compression
+### Hardware Acceleration
+
+* nVidia Jetson Hardware Acceleration Options (for Jetson Nano, Jetson Xavior). NV SDK ffnvcodec is not available. You can only get hardware acceleration with nvmpi through: <a href="https://github.com/jocover/jetson-ffmpeg">Jetson-FFMpeg</a>, (which by default works with FFmpeg 4.2, for other versions of FFmpeg, you need to apply patch manually). For other platforms, FFmpeg can support hardware acceleration directly through nvsdk.
 
 # About This Repository
 
