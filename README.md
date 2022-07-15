@@ -7,7 +7,7 @@
 
 ## Video Compression
 ### Audio Encoding
-* FFmpeg AAC encoding require a sample buffer size of 1024 (frame->nb_frame = 1024), otherwise, it will return "more samples than frame size" for avcodec_encode_audio2 function.
+* FFmpeg AAC encoding require number of samples each frame be exactly 1024 (frame->nb_samples = 1024), otherwise, it will return "more samples than frame size" for avcodec_encode_audio2 function.
 
 ### Hardware Acceleration
 
