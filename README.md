@@ -7,7 +7,11 @@
 
 ## Video Compression
 ### Audio Encoding
-* FFmpeg AAC encoding require number of samples each frame be exactly 1024 (frame->nb_samples = 1024), otherwise, it will return "more samples than frame size" for avcodec_encode_audio2 function.
+* FFmpeg AAC encoding require number of samples each frame be exactly 1024 (frame->nb_samples = 1024), otherwise, it will return "more samples than frame size" for avcodec_encode_audio2 function (error code -22, Invalid Argument).
+* When creating AVFrame with PCM buffer using avcodec_fill_audio_frame, be sure to read the document clearly:
+    > The buffer buf must be a preallocated buffer with a size big enough to contain the specified samples amount. The filled AVFrame data pointers will point to this buffer.
+
+    So buf pointer needs to be pre-allocated and will be assigned to AVFrame. Therefore, don't try to reuse the pointer for other things, which will cause electronic noise after the AVFrame done processing (dirty buffer).
 
 ### Hardware Acceleration
 
