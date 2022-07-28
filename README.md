@@ -1,17 +1,25 @@
 # MediaTechNotes
 
 ## Table of Content
-- **[Video Compression](#video_compression)**
+- **[Media Compression](#media_compression)**
     - **[Audio Encoding](#audio-encoding)**
+    - **[Remuxing](#remuxing)**
     - **[Hardware Acceleration](#hardware-acceleration)**
+    - **[FFmpeg Gists](#ffmpeg-gists)**
 
-## Video Compression
+## Media Compression
 ### Audio Encoding
 * FFmpeg AAC encoding require number of samples each frame be exactly 1024 (frame->nb_samples = 1024), otherwise, it will return "more samples than frame size" for avcodec_encode_audio2 function (error code -22, Invalid Argument).
 * When creating AVFrame with PCM buffer using avcodec_fill_audio_frame, be sure to read the document clearly:
     > The buffer buf must be a preallocated buffer with a size big enough to contain the specified samples amount. The filled AVFrame data pointers will point to this buffer.
 
     So buf pointer needs to be pre-allocated and will be assigned to AVFrame. Therefore, don't try to reuse the pointer for other things, which will cause electronic noise after the AVFrame done processing (dirty buffer).
+
+### Remuxing
+* By far, the best description of remuxing implementation can be found at: https://www.bookstack.cn/read/ffmpeg-libav-tutorial/spilt.3.spilt.4.blank, for all those years, it still works like a charm by following the steps.
+
+### FFmpeg Gists
+* Generating a new AVPacket can be done in three ways, described in : https://www.anycodings.com/1questions/321931/create-a-copy-of-an-avpacket-structure
 
 ### Hardware Acceleration
 
