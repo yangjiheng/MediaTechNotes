@@ -1,7 +1,7 @@
 # MediaTechNotes
 
 ## Table of Content
-- **[Video Compression](#video_compression)**
+- **[Video Compression](#video-compression)**
     - **[Audio Encoding](#audio-encoding)**
     - **[Hardware Acceleration](#hardware-acceleration)**
 
